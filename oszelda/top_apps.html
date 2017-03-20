@@ -133,17 +133,17 @@
  
     $(function(){
         if(document.createStyleSheet) {
-            document.createStyleSheet('https://ecs7.tokopedia.net/css/recharge-widget-mobile.css?v=' + recharge_cdn_version);
+            document.createStyleSheet(recharge_url + 'gtm/recharge-widget-mobile.css?v=' + recharge_cdn_version);
         }
         else {
-            var styles = "@import url('https://ecs7.tokopedia.net/css/recharge-widget-mobile.css?v=" + recharge_cdn_version + "');";
+            var styles = "@import url('"+recharge_url + 'gtm/recharge-widget-mobile.css?v='+recharge_cdn_version + "');";
             var newSS=document.createElement('link');
             newSS.rel='stylesheet';
             newSS.href='data:text/css,'+escape(styles);
             document.getElementsByTagName("head")[0].appendChild(newSS);
         }
       
-        $.getScript('https://ecs7.tokopedia.net/scripts/recharge-widget-mobile.js?v=' + recharge_cdn_version).done(function(script,status) {
+        $.getScript(recharge_url + 'gtm/recharge-widget-mobile.js?v=' + recharge_cdn_version).done(function(script,status) {
             var pulsa_banner = $("#dmw-img--big").parent("a");
             var input_number = $("#recharge_client_number");
             var placeholder = "Contoh 0888547324";
